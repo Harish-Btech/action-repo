@@ -1,0 +1,19 @@
+name: Push Event
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Webhook
+        uses: distributhor/webhook-action@v2
+        with:
+          url: https://8e3d-122-171-18-245.ngrok-free.app  
+          method: POST
+          content-type: application/json
+          payload: '{"event": "push", "action": "PUSH"}' 
